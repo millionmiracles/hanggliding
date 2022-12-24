@@ -1,0 +1,42 @@
+
+.carousel{
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.slides {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.slides::-webkit-scrollbar {
+    display: none;
+}
+
+.slides-item {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    font-size: 100px;
+    /* position: relative; */
+    width: 100%;
+    scroll-snap-align: start;
+}
+
+.carousel-nav {
+    padding: 1rem 1rem;
+}
+
+/* .slider-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+} */
+

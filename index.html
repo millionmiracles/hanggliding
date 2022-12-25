@@ -5,12 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
     <title>Document</title>
   </head>
   <body>
     <main>
+      <div class="btns-container">
+        <div class="btns-phantom"></div>
+        <div class="btns">
+            <button id="prevBtn">prev</button>
+            <button id="playBtn">play</button>
+            <button id="nextBtn">next</button>
+        </div>
+    </div>
       <div class="carousel">
-        <div class="slide">
+        <div class="slide" id="slide-0">
           <div class="video-container">
             <div class="caption"></div>
             <div class="caption-text">
@@ -19,10 +28,10 @@
               <p>полети с нас</p>
               <button>Some Text</button>
             </div>
-            <video src="vid/deltaSea10.mp4" class="vid" controls></video>
+            <video src="vid/deltaSea10.mp4" class="vid"></video>
           </div>
         </div>
-        <div class="slide">
+        <div class="slide" id="slide-1">
           <div class="video-container">
             <div class="caption"></div>
             <div class="caption-text">
@@ -31,7 +40,19 @@
               <p>полети с нас</p>
               <button>Some Text</button>
             </div>
-            <video src="vid/deltaSea10.mp4" class="vid" controls></video>
+            <video src="vid/deltaSea10.mp4" class="vid"></video>
+          </div>
+        </div>
+        <div class="slide" id="slide-2">
+          <div class="video-container">
+            <div class="caption"></div>
+            <div class="caption-text">
+              <h2>Полет с делтапланер</h2>
+              <p>Подари приключение,</p>
+              <p>полети с нас</p>
+              <button>Some Text</button>
+            </div>
+            <video src="vid/deltaSea10.mp4" class="vid"></video>
           </div>
         </div>
       </div>

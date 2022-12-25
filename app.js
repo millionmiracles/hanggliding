@@ -1,45 +1,8 @@
-let currentSlide = 0;
-let isPlaying = false;
+const express = require("express");
+const app = express();
 
-const prevBtn = document.getElementById("prevBtn");
-prevBtn.addEventListener("click", gotoPrev);
+app.use(express.static("public"));
 
-const nextBtn = document.getElementById("nextBtn");
-nextBtn.addEventListener("click", gotoNext);
+app.get("/", (req, res) => res.send("<h1>Hi</h1>"));
 
-const playBtn = document.getElementById("playBtn");
-playBtn.addEventListener("click", playVideo);
-
-const videos = Array.from(document.querySelectorAll("video"));
-
-function playVideo() {
-    if (!isPlaying) {
-        videos[currentSlide].play();
-        isPlaying = true;
-    } else pauseVideo();
-}
-
-function pauseVideo() {
-  videos[currentSlide].pause();
-  isPlaying = false;
-}
-
-function gotoNext() {
-  if (isPlaying) pauseVideo();
-  if (currentSlide == 2) {
-    currentSlide = 0;
-    window.location.hash = `slide-${currentSlide}`;
-  } else {
-    window.location.hash = `slide-${++currentSlide}`;
-  }
-}
-
-function gotoPrev() {
-    if (isPlaying) pauseVideo();
-    if (currentSlide == 0) {
-    currentSlide = 2;
-    window.location.hash = `slide-${currentSlide}`;
-  } else {
-    window.location.hash = `slide-${--currentSlide}`;
-  }
-}
+app.listen(process.env.PORT || 3000, ()=> console.log('Server is running...'))

@@ -1,42 +1,82 @@
-
-.carousel{
-    overflow: hidden;
-    margin: 0 auto;
-    text-align: center;
+/* GENERAL */
+body {
+    background-color: brown;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
 }
 
-.slides {
+p {
+  margin: 0;
+}
+
+button {
+  margin: 18px;
+}
+
+/* CAROUSEL */
+
+.carousel {
+    background-color: aqua;
     display: flex;
     overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
 }
 
-.slides::-webkit-scrollbar {
-    display: none;
-}
-
-.slides-item {
+.slide {
+    background-color: blueviolet;
     display: flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: center;
-    height: 600px;
-    font-size: 100px;
-    /* position: relative; */
     width: 100%;
-    scroll-snap-align: start;
+    height: 100%;
 }
 
-.carousel-nav {
-    padding: 1rem 1rem;
+/* CAROUSEL -- SLIDE */
+.video-container {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
-/* .slider-nav {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+@media screen and (min-width: 800px) {
+  .video-container {
+    flex-direction: row;
     position: relative;
-} */
+    justify-content: flex-end;
+    padding-right: 100px;
+  }
+}
 
+.vid {
+    width: 100%;
+  -webkit-mask-image: url(blob-haikei.png);
+  mask-image: url(blob-haikei.png);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+}
+
+.caption {
+  width: 0;
+}
+
+.caption-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 800px) {
+    .vid,
+    .caption,
+    .caption-text{
+      height: 100%;
+      width: 50%;
+    }
+  
+    .caption-text {
+      left: 100px;
+      position: absolute;
+    }
+}

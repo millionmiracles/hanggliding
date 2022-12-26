@@ -11,6 +11,7 @@ const playBtn = document.getElementById("playBtn");
 playBtn.addEventListener("click", playVideo);
 
 const videos = Array.from(document.querySelectorAll("video"));
+const carousel = document.querySelector('.carousel');
 
 function playVideo() {
     if (!isPlaying) {
@@ -44,7 +45,12 @@ function gotoPrev() {
   }
 }
 
-const carousel = document.querySelector('.carousel');
 // carousel.onscroll = () => console.log(carousel.scrollLeft, carousel.scrollWidth);
-carousel.addEventListener('scroll', () => console.log(carousel.scrollLeft));
+carousel.addEventListener('scroll', navigate);
 
+function navigate() {
+  let offset = carousel.scrollLeft / carousel.scrollWidth;
+  if (offset == 0) console.log('0');
+  if (offset == 1 / 3) console.log('1/3');
+  if (offset == 2 / 3) console.log('2/3');
+}

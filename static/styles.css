@@ -23,13 +23,12 @@ button {
   scroll-snap-type: x mandatory;
 }
 
-.carousel::-webkit-scrollbar {
+/* .carousel::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .slide {
   scroll-snap-align: start;
-  /* display: flex; */
   flex-shrink: 0;
   align-items: center;
   justify-content: center;

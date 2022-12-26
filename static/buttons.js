@@ -43,3 +43,8 @@ function gotoPrev() {
     window.location.hash = `slide-${--currentSlide}`;
   }
 }
+
+const carousel = document.querySelector('.carousel');
+// carousel.onscroll = () => console.log(carousel.scrollLeft, carousel.scrollWidth);
+carousel.addEventListener('scroll', () => console.log(carousel.scrollLeft));
+

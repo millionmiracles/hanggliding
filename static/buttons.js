@@ -26,24 +26,22 @@ function pauseVideo() {
 }
 
 function gotoNext() {
-  if (isPlaying) pauseVideo();
   if (currentSlide == 2) carousel.scrollTo(0,0);
   if (currentSlide == 0) carousel.scrollTo(946,0);
   if (currentSlide == 1) carousel.scrollTo(1892,0);
 }
 
 function gotoPrev() {
-  if (isPlaying) pauseVideo();
   if (currentSlide == 0) carousel.scrollTo(1892,0);
   if (currentSlide == 1) carousel.scrollTo(0,0);
   if (currentSlide == 2) carousel.scrollTo(946,0);
   
 }
 
-// carousel.onscroll = () => console.log(carousel.scrollLeft, carousel.scrollWidth);
 carousel.addEventListener("scroll", navigate);
 
 function navigate() {
+  if (isPlaying) pauseVideo();
   let offset = carousel.scrollLeft / carousel.scrollWidth;
   if (offset == 0) currentSlide = 0;
   if (offset == 1 / 3) currentSlide = 1;

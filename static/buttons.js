@@ -14,9 +14,10 @@ const videos = Array.from(document.querySelectorAll("video"));
 const carousel = document.querySelector(".carousel");
 
 function playVideo() {
-  if (!isPlaying) {
+  if (!isPlaying || videos[currentSlide].ended) {
     videos[currentSlide].play();
     isPlaying = true;
+
   } else pauseVideo();
 }
 
@@ -27,15 +28,14 @@ function pauseVideo() {
 
 function gotoNext() {
   if (currentSlide == 2) carousel.scrollTo(0,0);
-  if (currentSlide == 0) carousel.scrollTo(946,0);
-  if (currentSlide == 1) carousel.scrollTo(1892,0);
+  if (currentSlide == 0) carousel.scrollTo(carousel.scrollWidth/3, 0);
+  if (currentSlide == 1) carousel.scrollTo(carousel.scrollWidth/3*2, 0);
 }
 
 function gotoPrev() {
-  if (currentSlide == 0) carousel.scrollTo(1892,0);
-  if (currentSlide == 1) carousel.scrollTo(0,0);
-  if (currentSlide == 2) carousel.scrollTo(946,0);
-  
+  if (currentSlide == 0) carousel.scrollTo(carousel.scrollWidth/3*2, 0);
+  if (currentSlide == 1) carousel.scrollTo(0, 0);
+  if (currentSlide == 2) carousel.scrollTo(carousel.scrollWidth/3, 0);
 }
 
 carousel.addEventListener("scroll", navigate);
@@ -43,6 +43,7 @@ carousel.addEventListener("scroll", navigate);
 function navigate() {
   if (isPlaying) pauseVideo();
   let offset = carousel.scrollLeft / carousel.scrollWidth;
+
   if (offset == 0) currentSlide = 0;
   if (offset == 1 / 3) currentSlide = 1;
   if (offset == 2 / 3) currentSlide = 2;

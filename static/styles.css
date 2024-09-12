@@ -1,0 +1,113 @@
+/* GENERAL */
+body {
+  /* background-color: brown; */
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  margin: 18px;
+}
+
+/* CAROUSEL */
+
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* CAROUSEL -- SLIDE */
+.video-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+@media screen and (min-width: 800px) {
+  .video-container {
+    flex-direction: row;
+    position: relative;
+    justify-content: flex-end;
+    padding-right: 100px;
+  }
+}
+
+.vid {
+  width: 100%;
+  -webkit-mask-image: url(blob-haikei.png);
+  mask-image: url(blob-haikei.png);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+}
+
+.caption {
+  width: 0;
+}
+
+.caption-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 800px) {
+  .vid,
+  .caption,
+  .caption-text {
+    height: 100%;
+    width: 50%;
+  }
+
+  .caption-text {
+    left: 100px;
+    position: absolute;
+  }
+}
+
+/* CAROUSEL -- BUTTONS */
+
+.btns-container {
+  top: 40vw;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+}
+
+@media screen and (min-width: 800px) {
+  .btns-container {
+    top: 20vw;
+    display: flex;
+}
+
+.btns-phantom {
+    width: 35vw;
+    height: 57px;
+}
+
+.btns {
+    width: 65vw;
+  }
+}
